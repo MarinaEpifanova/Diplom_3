@@ -10,6 +10,5 @@ public class BaseTest {
         // Configuration.browser="chrome";
         Configuration.startMaximized = true;
     }
-
 }
 

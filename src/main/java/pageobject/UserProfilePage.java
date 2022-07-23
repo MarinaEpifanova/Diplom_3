@@ -40,8 +40,5 @@ public class UserProfilePage {
     public MainPage clickLogoButton() {
         logoButton.click();
         return page(MainPage.class);
-
     }
-
-
 }

@@ -4,13 +4,12 @@ import io.qameta.allure.Story;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import pageobject.MainPage;
+
 import static com.codeborne.selenide.Selenide.open;
 import static data.Customer.getRandomCustomer;
 
-
 @Story("Проверяем регистрацию пользователя")
 public class RegistrationTest extends BaseTest {
-
 
     @Test
     @DisplayName("Регистрация пользователя при корректном заполнении данных")
@@ -48,6 +47,5 @@ public class RegistrationTest extends BaseTest {
                 .setPassword("12")
                 .setEmail(customer.getEmail())
                 .isVisibleIncorrectPasswordPage();
-
     }
 }

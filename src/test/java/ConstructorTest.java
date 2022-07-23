@@ -1,5 +1,3 @@
-
-
 import io.qameta.allure.Description;
 import io.qameta.allure.Story;
 import io.qameta.allure.junit4.DisplayName;
@@ -15,37 +13,28 @@ public class ConstructorTest extends BaseTest {
     @Test
     @DisplayName("Проверяем переход к разделу «Начинки»")
     @Description("Проверяем:\n" + " - переход к разделу выполняется")
-    public void ChapterFillingTest() {
+    public void SectionFillingTest() {
         open(MainPage.URL, MainPage.class)
-                .clickPersonalAccountButtonNotAuth()
-                .clickConstructorButton()
                 .clickFillingBurger()
-                .isVisibleIngredientFillingBurger();
-
+                .checkSelectedSection("Начинки");
     }
 
     @Test
     @DisplayName("Проверяем переход к разделу «Соусы»")
     @Description("Проверяем:\n" + " - переход к разделу выполняется")
-    public void ChapterSouseTest() {
+    public void SectionSouseTest() {
         open(MainPage.URL, MainPage.class)
-                .clickPersonalAccountButtonNotAuth()
-                .clickConstructorButton()
                 .clickSouseBurger()
-                .isVisibleIngredientSouseBurger();
-
+                .checkSelectedSection("Соусы");
     }
 
     @Test
     @DisplayName("Проверяем переход к разделу «Булки»")
     @Description("Проверяем:\n" + " - переход к разделу выполняется")
-    public void ChapterBunTest() {
+    public void SectionBunTest() {
         open(MainPage.URL, MainPage.class)
-                .clickPersonalAccountButtonNotAuth()
-                .clickConstructorButton()
                 .clickFillingBurger()
                 .clickBunBurger()
-                .isVisibleIngredientBunBurger();
-
+                .checkSelectedSection("Булки");
     }
 }

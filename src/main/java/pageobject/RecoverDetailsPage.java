@@ -19,6 +19,4 @@ public class RecoverDetailsPage {
         openRememberPassword.click();
         return page(LoginPage.class);
     }
-
-
 }

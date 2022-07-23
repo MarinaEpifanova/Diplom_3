@@ -11,8 +11,7 @@ import static com.codeborne.selenide.Selenide.page;
 public class UserDetailsPage {
 
     // локатор поля ввода имени
-
-    @FindBy(how = How.XPATH, using = "//form[@ class='Auth_form__3qKeq mb-20']/fieldset[1]/div/div/input")
+    @FindBy(how = How.XPATH, using = "(//input[@class='text input__textfield text_type_main-default'])[1]")
     private SelenideElement usernameField;
 
     // метод заполнения поля ввода имени
@@ -23,7 +22,7 @@ public class UserDetailsPage {
     }
 
     // локатор поля ввода email
-    @FindBy(how = How.XPATH, using = "//form[@ class='Auth_form__3qKeq mb-20']/fieldset[2]/div/div/input")
+    @FindBy(how = How.XPATH, using = "(//input[@class='text input__textfield text_type_main-default'])[2]")
     private SelenideElement emailField;
 
     // метод заполнения поля ввода email
@@ -34,7 +33,7 @@ public class UserDetailsPage {
     }
 
     // локатор поля ввода пароля
-    @FindBy(how = How.XPATH, using = "//form[@ class='Auth_form__3qKeq mb-20']/fieldset[3]/div/div/input")
+    @FindBy(how = How.XPATH, using = "//div[@class='input pr-6 pl-6 input_type_password input_size_default']/input")
     private SelenideElement passwordField;
 
     // метод заполнения поля ввода пароля
@@ -43,7 +42,6 @@ public class UserDetailsPage {
         passwordField.setValue(password);
         return this;
     }
-
 
     //Заполнение данных пользователя
     public UserDetailsPage inputUserDetails(Customer customer) {
@@ -68,11 +66,9 @@ public class UserDetailsPage {
     @FindBy(how = How.XPATH, using = "//p[text()='Некорректный пароль']")
     private SelenideElement incorrectPassword;
 
-
     @Step("Вывод предупреждения о некорректном пароле")
     // Метод проверки вывода предупреждения о некорректном пароле
     public boolean isVisibleIncorrectPasswordPage() {
         return incorrectPassword.isDisplayed();
     }
-
 }

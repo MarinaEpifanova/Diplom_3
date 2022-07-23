@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import com.codeborne.selenide.Condition;
+
 import static com.codeborne.selenide.Selenide.page;
 
 
@@ -22,17 +23,7 @@ public class MainPage {
         bunBurger.scrollIntoView(true).click();
         return this;
     }
-    // Локатор надписи булки
-    @FindBy(how = How.XPATH, using = "//h2[text()='Булки']")
-    private SelenideElement ingredientBunBurger;
 
-
-    // Метод проверяющие отображение надписи булки
-    @Step("Отображение надписи булки")
-    public MainPage isVisibleIngredientBunBurger() {
-        ingredientBunBurger.shouldBe(Condition.visible);
-        return this;
-    }
     // Локатор кнопки раздела соусы
     @FindBy(how = How.XPATH, using = "//span[text()='Соусы']")
     private SelenideElement souseBurger;
@@ -41,16 +32,6 @@ public class MainPage {
     @Step("Перейти в раздел соусы")
     public MainPage clickSouseBurger() {
         souseBurger.scrollIntoView(true).click();
-        return this;
-    }
-    // Локатор надписи соусы
-    @FindBy(how = How.XPATH, using = "//h2[text()='Соусы']")
-    private SelenideElement ingredientSouseBurger;
-
-    // Метод проверяющие надпись соусы
-    @Step("Отображение надписи соусы")
-    public MainPage isVisibleIngredientSouseBurger() {
-        ingredientSouseBurger.shouldBe(Condition.visible);
         return this;
     }
 
@@ -65,17 +46,16 @@ public class MainPage {
         return this;
     }
 
-    // Локатор надписи начинки
-    @FindBy(how = How.XPATH, using = "//h2[text()='Начинки']")
-    private SelenideElement ingredientFillingBurger;
+    // Локатор выделенного раздела
+    @FindBy(how = How.XPATH, using = "//div[@Class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']/span")
+    private SelenideElement constructorSelectedSection;
 
-    // Отображение надписи начинки
-    @Step("Проверка отображения надписи начинки")
-    public MainPage isVisibleIngredientFillingBurger() {
-        ingredientFillingBurger.shouldBe(Condition.visible);
+    // Проверка выделения нужного раздела
+    @Step("Проверка выделения нужного раздела")
+    public MainPage checkSelectedSection(String txt) {
+        constructorSelectedSection.shouldHave(Condition.text(txt));
         return this;
     }
-
 
     // Локатор кнопки войти в аккаунт
     @FindBy(how = How.XPATH, using = "//button[@class='button_button__33qZ0 button_button_type_primary__1O7Bx button_button_size_large__G21Vg']")

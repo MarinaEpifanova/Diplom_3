@@ -4,15 +4,13 @@ import io.qameta.allure.Story;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import pageobject.MainPage;
+
 import static com.codeborne.selenide.Selenide.open;
 import static data.Customer.getFirstCustomer;
 import static data.Customer.getRandomCustomer;
 
-
-
 @Story("Проверяем вход пользователя")
 public class LoginTest extends BaseTest {
-
 
     @Test
     @DisplayName("Вход по кнопке Войти в аккаунт на главной")
@@ -83,13 +81,13 @@ public class LoginTest extends BaseTest {
                 .isVisibleOrderButtonMain()
                 .clickPersonalAccountButtonAuth()
                 .clickExitLogin();
-        }
+    }
 
     @Test
     @DisplayName("Переход в личный кабинет")
     @Description("Проверяем:\n" + " - осуществляется переход по клику в «Личный кабинет»")
     public void LoginOpenPersonalAccountTest() {
-              open(MainPage.URL, MainPage.class)
+        open(MainPage.URL, MainPage.class)
                 .clickPersonalAccountButtonNotAuth()
                 .isVisibleOpenUserLogin();
     }
@@ -110,9 +108,7 @@ public class LoginTest extends BaseTest {
                 .isVisibleSatBurgerMain()
                 .clickPersonalAccountButtonAuth()
                 .clickExitLogin();
-
     }
-
 
     @Test
     @DisplayName("Переход из личного кабинета на логотип Stellar Burgers")
@@ -130,7 +126,6 @@ public class LoginTest extends BaseTest {
                 .isVisibleSatBurgerMain()
                 .clickPersonalAccountButtonAuth()
                 .clickExitLogin();
-
     }
 
     @Test
@@ -147,7 +142,5 @@ public class LoginTest extends BaseTest {
                 .clickPersonalAccountButtonAuth()
                 .clickExitLogin()
                 .isVisibleOpenUserLogin();
-
     }
 }
-

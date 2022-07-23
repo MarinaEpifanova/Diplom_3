@@ -5,12 +5,13 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+
 import static com.codeborne.selenide.Selenide.page;
 
 public class LoginPage {
 
     // локатор поля ввода email
-    @FindBy(how = How.XPATH, using = "//form[@ class='Auth_form__3qKeq mb-20']/fieldset[1]/div/div/input")
+    @FindBy(how = How.XPATH, using = "//div[@class='input pr-6 pl-6 input_type_text input_size_default']/input")
     private SelenideElement emailField;
 
     // метод заполнения поля ввода email
@@ -21,7 +22,7 @@ public class LoginPage {
     }
 
     // локатор поля ввода пароля
-    @FindBy(how = How.XPATH, using = "//form[@ class='Auth_form__3qKeq mb-20']/fieldset[2]/div/div/input")
+    @FindBy(how = How.XPATH, using = "//div[@class='input pr-6 pl-6 input_type_password input_size_default']/input")
     private SelenideElement passwordField;
 
     // метод заполнения поля ввода пароля
@@ -86,5 +87,4 @@ public class LoginPage {
         constructorButton.click();
         return page(MainPage.class);
     }
-
 }
